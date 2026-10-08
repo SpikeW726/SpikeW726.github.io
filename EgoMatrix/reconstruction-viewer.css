@@ -1,0 +1,30 @@
+#reconstruction-gallery{margin:40px 0 28px;color:#172b3a;line-height:1.65}
+#reconstruction-gallery .rv-heading h3{font-size:25px;letter-spacing:-.6px;margin:0 0 5px}
+#reconstruction-gallery .rv-heading p{color:#617482;margin:0 0 22px}
+#reconstruction-gallery button,#reconstruction-gallery select{font:inherit;font-size:14px;padding:9px 14px;border:1px solid #cbdbe0;border-radius:8px;background:#fff;color:#172b3a}
+#reconstruction-gallery button{cursor:pointer}
+#reconstruction-gallery button[aria-pressed="true"]{color:#fff;background:#087f86;border-color:#087f86}
+#reconstruction-gallery button:hover{border-color:#087f86}
+#reconstruction-gallery :focus-visible{outline:3px solid #087f86;outline-offset:3px}
+#reconstruction-gallery .rv-taskbar{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+#rv-info{font-size:13px;color:#617482;margin-left:auto}
+#reconstruction-gallery .rv-modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+#reconstruction-gallery .rv-viewbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+#reconstruction-gallery .rv-viewbar .rv-modes{margin-bottom:0}
+#reconstruction-gallery #rv-layout{font-size:12px;border-style:dashed}
+#reconstruction-gallery .rv-player{border:1px solid #dce7eb;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 12px 45px #1a485909}
+#rv-video{display:block;width:auto;height:auto;max-width:100%;max-height:min(640px,calc(100svh - 200px));margin-inline:auto;object-fit:contain;background:#fff}
+#reconstruction-gallery .rv-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 18px;border-top:1px solid #e3ecef}
+#reconstruction-gallery .rv-toolbar button,#reconstruction-gallery .rv-toolbar select{padding:5px 9px;font-size:12px}
+#reconstruction-gallery .rv-toolbar label{font-size:12px;white-space:nowrap}
+#rv-counter{margin-left:auto;font-size:12px;color:#617482;font-variant-numeric:tabular-nums}
+#rv-caption{font-size:13px;color:#617482;padding:0 18px 17px;margin:0}
+#rv-contact-legend{font-size:12px;line-height:1.6;color:#425966;padding:0 18px 17px;margin:0}
+.rv-pair-orange,.rv-pair-purple{font-weight:650;white-space:nowrap}
+.rv-pair-orange::before,.rv-pair-purple::before{content:"";display:inline-block;width:19px;height:3px;vertical-align:middle;margin-right:6px;background:#f59e0b}
+.rv-pair-purple::before{background:#d946ef}
+#reconstruction-gallery .rv-links{display:flex;gap:20px;font-size:12px;margin:14px 0 20px}
+#reconstruction-gallery a{color:#087f86}
+#rv-error{color:#a42626;font-size:13px}
+#reconstruction-gallery [hidden]{display:none!important}
+@media(max-width:700px){#rv-info{margin-left:0;width:100%}#rv-counter{margin-left:0;width:100%}#reconstruction-gallery .rv-toolbar{padding:12px}#reconstruction-gallery .rv-modes button{font-size:12px;padding:8px 10px}}

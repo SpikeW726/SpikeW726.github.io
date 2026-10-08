@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EgoMatrix converts egocentric human videos into bimanual dexterous robot trajectories and paired visual observations.">
+  <meta name="theme-color" content="#087f86">
+  <title>EgoMatrix — From Human Videos to Robot Demonstrations</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reconstruction-viewer.css">
+  <script src="demo-catalog.js" defer></script>
+  <script src="task-carousel.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="reconstruction-catalog.js" defer></script>
+  <script src="reconstruction-viewer.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="#top" aria-label="EgoMatrix home">Ego<span>Matrix</span><i aria-hidden="true"></i></a>
+      <div class="nav-links"><a href="#demos">Demonstrations</a><a href="#reconstruction">Reconstruction</a><a href="#scenes">Scene transfer</a><a href="#hardware">Real robots</a></div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <p class="eyebrow"><span class="status-dot"></span> Research project</p>
+      <h1><span class="hero-brand">Ego<span>Matrix</span></span><span class="hero-title">Physically Faithful Dexterous Robot Demonstrations<br class="desktop-break"> from Egocentric Human Videos</span></h1>
+      <div class="authors" aria-label="Authors and affiliations">
+        <p class="author-row">
+          <span>Ziheng Wang<sup>1</sup></span>
+          <span>Yanming Shao<sup>2</sup></span>
+          <span>Ting Mao<sup>3</sup></span>
+        </p>
+        <p class="author-row">
+          <span>Kaihan Chen<sup>3</sup></span>
+          <span>Yiqun Wang<sup>2</sup></span>
+          <span>Xuanye Wu<sup>2</sup></span>
+          <span>Yao Mu<sup>1,2,*</sup></span>
+        </p>
+        <p class="affiliations">
+          <span><sup>1</sup> Shanghai Jiao Tong University</span>
+          <span><sup>2</sup> Shanghai Artificial Intelligence Laboratory</span>
+          <span><sup>3</sup> Zhejiang University</span>
+        </p>
+        <p class="author-note"><sup>*</sup> Corresponding author</p>
+      </div>
+      <p class="hero-description">Human demonstrations. Executable robot motion.<br>Visual observations that preserve the interaction.</p>
+      <div class="hero-actions"><a class="button primary" href="#demos"><span aria-hidden="true">▶</span> Explore demonstrations</a><a class="button secondary" href="#method">How it works <span aria-hidden="true">↗</span></a></div>
+      <figure class="teaser"><img src="assets/images/teaser.png" width="1672" height="941" fetchpriority="high" alt="EgoMatrix: human demonstrations and corresponding robot executions synthesized across multiple real backgrounds."><figcaption>From a human video to a robot demonstration—and from one execution to many compatible scenes.</figcaption></figure>
+    </section>
+
+    <section class="summary wrap" aria-label="Research highlights">
+      <div><strong>54.84<span>%</span></strong><p>End-to-end success in simulation</p><small>34 of 62 evaluated demonstrations</small></div>
+      <div><strong>3.78<span>×</span></strong><p>Success of the strongest baseline</p><small>54.84% vs. 14.52% · Paper, Table 1</small></div>
+      <div><strong>3</strong><p>Sources of human demonstrations</p><small>TACO · OakInk2 · Self-collected</small></div>
+    </section>
+
+    <section class="section wrap" id="demos">
+      <div class="section-heading"><div><p class="eyebrow">01 / Video to robot</p><h2>From human demonstration to robot execution.</h2></div><p>Follow a human demonstration through a successful simulation rollout to robot observations in the original scene.</p></div>
+      <div class="demo-toolbar"><div class="task-carousel" id="demo-carousel" role="group" aria-label="Browse demonstrations" tabindex="0"><button type="button" data-previous aria-label="Previous demonstration">←</button><div class="carousel-label" aria-live="polite"><span data-count>01 / 16</span><strong data-title>Pouring between cups</strong><div class="carousel-track" aria-hidden="true"><span data-progress></span></div></div><button type="button" data-next aria-label="Next demonstration">→</button></div><button class="button small secondary" id="play-demo" type="button">▶ Play all three</button></div>
+      <div class="triplet" id="demo-panels">
+        <figure class="video-card"><figcaption><span class="step">01</span> Human demonstration<span class="media-kind">Input</span></figcaption><video id="human-video" controls playsinline muted preload="none" poster="assets/demos-tail-v1/bi4_pour_cups/01_human.png" src="assets/demos-tail-v1/bi4_pour_cups/01_human.mp4" aria-label="Human demonstration"></video></figure>
+        <figure class="video-card"><figcaption><span class="step">02</span> Robot execution<span class="media-kind">Simulation</span></figcaption><video id="simulation-video" controls playsinline muted preload="none" poster="assets/demos-v2/bi4_pour_cups/02_simulation.png" src="assets/demos-v2/bi4_pour_cups/02_simulation.mp4" aria-label="Robot simulation"></video></figure>
+        <figure class="video-card"><figcaption><span class="step">03</span> Robot observation<span class="media-kind">Synthesis</span></figcaption><video id="synthesis-video" controls playsinline muted preload="none" poster="assets/demos-v2/bi4_pour_cups/03_fused_same_scene.png" src="assets/demos-v2/bi4_pour_cups/03_fused_same_scene.mp4" aria-label="Synthesized robot observation"></video></figure>
+      </div>
+      <div class="demo-caption"><p><strong id="demo-title">Pouring between cups</strong><span id="demo-dataset">Self-collected</span></p><p id="demo-note" aria-live="polite">Tail-aligned excerpts of the same task; human and robot motions are not framewise identical.</p></div>
+      <p class="source-note">Some tasks use floating-hand renderings because the dual-arm versions obscure too much of the hand–object interaction.</p>
+      <noscript><p>The cup-pouring demonstration is available above. Enable JavaScript to switch tasks and explore the scene matrix.</p></noscript>
+    </section>
+
+    <section class="method-band" id="method"><div class="wrap section">
+      <div class="section-heading"><div><p class="eyebrow">02 / The data engine</p><h2>Recover the interaction.<br>Transfer it. Render it.</h2></div><p>EgoMatrix starts from monocular RGB. Its goal is manipulation-relevant hand–object geometry and paired robot data.</p></div>
+      <figure class="method-overview"><a href="assets/images/method-overview.png" target="_blank" rel="noopener" aria-label="Open the method overview at full resolution"><img src="assets/images/method-overview.png" loading="lazy" alt="EgoMatrix pipeline: monocular video estimates feed hand-anchored initialization, multi-start pose refinement and local contact refinement. Keypoint retargeting and reinforcement learning transfer the interaction to a robot; rendering and background compositing produce paired robot demonstrations."></a><figcaption>From monocular video to contact-aware reconstruction, dexterous robot motion, and paired visual observations. <a href="assets/images/method-overview.png" target="_blank" rel="noopener">View full-size figure ↗</a></figcaption></figure>
+      <div class="pipeline">
+        <article><div class="pipeline-top"><span>01</span><span aria-hidden="true">→</span></div><h3>Contact-aware reconstruction</h3><p>Hand-anchored initialization establishes relative geometry. Multi-start pose refinement and local contact refinement improve the hand–object interaction.</p><div class="pipeline-output">Human hand + object trajectories</div></article>
+        <article><div class="pipeline-top"><span>02</span><span aria-hidden="true">→</span></div><h3>Dexterous manipulation transfer</h3><p>Keypoint retargeting and reinforcement learning turn the reconstructed interaction into a successful bimanual execution in IsaacLab.</p><div class="pipeline-output">Robot states + control records</div></article>
+        <article><div class="pipeline-top"><span>03</span><span aria-hidden="true">↗</span></div><h3>Paired observation synthesis</h3><p>Robot hands and objects are rendered jointly from the recorded execution, then composited into real scenes with simulated shadows.</p><div class="pipeline-output">Visual observations + motion data</div></article>
+      </div>
+    </div></section>
+
+    <section class="section wrap" id="results">
+      <div class="section-heading"><div><p class="eyebrow">03 / End-to-end results</p><h2>From reconstruction<br>to successful execution.</h2></div><p>The same simulation transfer protocol evaluates whether reconstructed interactions can become executable robot demonstrations.</p></div>
+      <div class="table-scroll"><table><caption>Overall success across 62 demonstrations · Paper, Table 1</caption><thead><tr><th scope="col">Method</th><th scope="col">Success rate</th><th scope="col">Successful / evaluated</th></tr></thead><tbody><tr><th scope="row">DexImit*</th><td>12.90%</td><td>8 / 62</td></tr><tr><th scope="row">Do As I Do</th><td>14.52%</td><td>9 / 62</td></tr><tr class="ours"><th scope="row">EgoMatrix</th><td>54.84%</td><td>34 / 62</td></tr></tbody></table><p class="source-note">*DexImit receives half credit when only one of the two hand–object trajectories satisfies the success criterion. These are simulation transfer results, not hardware success rates.</p></div>
+    </section>
+
+    <section class="section wrap" id="reconstruction">
+      <div class="evidence-layout"><div class="evidence-copy"><p class="eyebrow">04 / Why contact matters</p><h2>Better interaction geometry.<br>More successful transfer.</h2><p>Visually plausible hand poses alone are not enough. Gaps, misplaced contact, and interpenetration can prevent a robot from reproducing the manipulation.</p><p>Each refinement stage improves end-to-end success on TACO. The reconstruction also ranks best on 8 of 10 metrics on TACO and 6 of 10 on OakInk2.</p><p class="source-note">Reported in the paper, Tables 2 and 4.</p></div>
+      <div class="evidence-panel"><h3>Reconstruction ablation</h3><p class="muted">TACO trajectory-transfer success · higher is better</p><div class="ablation-row"><div><span>Hand-anchored initialization</span><strong>5.41%</strong></div><div class="bar-track"><span style="width:10.82%"></span></div></div><div class="ablation-row"><div><span>+ Multi-start pose refinement</span><strong>27.03%</strong></div><div class="bar-track"><span style="width:54.06%"></span></div></div><div class="ablation-row final"><div><span>+ Local contact refinement</span><strong>48.65%</strong></div><div class="bar-track"><span style="width:97.3%"></span></div></div><div class="bar-axis"><span>0%</span><span>50%</span></div><p class="source-note">The same transfer protocol is used across refinement stages.</p></div></div>
+      <div id="reconstruction-gallery"><p><a href="assets/reconstruction-showcase-final/Bi_task5_left/contact.mp4">View the bottle-uncapping contact comparison →</a>. Enable JavaScript to explore all reconstruction comparisons.</p></div>
+    </section>
+
+    <section class="section scene-section" id="scenes"><div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">05 / Background transfer</p><h2>The same execution.<br>A different scene.</h2></div><p>Explore five source tasks across five target backgrounds. Robot–object motion is preserved while the viewpoint and scene change.</p></div>
+      <div class="scene-layout"><div class="matrix-area"><div class="matrix-guide"><span>↓ Source task</span><span>Target background →</span></div><div class="matrix-scroll"><div class="matrix" id="scene-matrix" role="group" aria-label="Choose one of 25 source-task and target-background combinations"></div></div><p class="source-note">Select any cell to play its video. Outlined cells retain the source background.</p></div><figure class="scene-viewer"><video id="scene-video" controls playsinline muted preload="none" poster="assets/matrix-v2/posters/bi4_to_bi4.png" src="assets/matrix-v2/videos/bi4_to_bi4.mp4" aria-label="Selected background-transfer example"></video><figcaption><span class="eyebrow">Selected transfer</span><strong id="scene-title">Pouring → Desk</strong><p id="scene-note" aria-live="polite">The recorded interaction is rendered in its original background.</p></figcaption></figure></div>
+      <p class="scope-note">Background transfer assumes a compatible support surface and does not re-simulate dynamics against arbitrary target geometry. The Oak source row uses the floating-hand version to keep the interaction visible.</p>
+      <div class="workstation-showcase">
+        <div class="section-heading"><div><p class="eyebrow">From open videos to your workstation</p><h3>Bring the task to the robot’s workspace.</h3></div><p>Convert manipulation tasks from open datasets into robot data in a target workstation, helping reduce the need for teleoperated data collection during post-training.</p></div>
+        <div class="workstation-pair">
+          <figure class="video-card"><figcaption><span class="step">01</span> Synthesized workstation observation<span class="media-kind">Synthesis</span></figcaption><video controls playsinline muted preload="none" poster="assets/workstation-plates/synthesized.png" src="assets/workstation-plates/synthesized.mp4" aria-label="Pouring between plates synthesized in the target real workstation"></video></figure>
+          <figure class="video-card"><figcaption><span class="step">02</span> Real robot replay<span class="media-kind">Hardware</span></figcaption><video controls playsinline muted preload="none" poster="assets/workstation-plates/real-replay.png" src="assets/workstation-plates/real-replay.mp4" aria-label="Real-robot pouring between plates from the egocentric workstation camera"></video></figure>
+        </div>
+        <p class="source-note"><strong>Pouring between plates.</strong> This example uses a self-collected human demonstration. Its synthesized observation is shown alongside a separately recorded replay in the same workstation. The clips retain their native timing and are not framewise synchronized.</p>
+      </div>
+    </div></section>
+
+    <section class="section wrap" id="hardware">
+      <div class="section-heading"><div><p class="eyebrow">06 / Beyond simulation</p><h2>From trajectory to hardware.</h2></div><p>Six task replays on physical dual-arm robots with XHand dexterous hands.</p></div>
+      <div class="hardware-grid">
+        <figure><video controls playsinline muted preload="none" poster="assets/real-v2/cups.png" src="assets/real-v2/cups.mp4" aria-label="Real-robot cup manipulation"></video><figcaption><span class="real-badge">Real robot</span><h3>Pouring between cups</h3><p>Recorded replay from an already grasped state through the pouring pose.</p></figcaption></figure>
+        <figure><video controls playsinline muted preload="none" poster="assets/real-v2/plates.png" src="assets/real-v2/plates.mp4" aria-label="Real-robot pouring between plates"></video><figcaption><span class="real-badge">Real robot</span><h3>Pouring between plates</h3><p>Bimanual motion for pouring from one plate into the other.</p></figcaption></figure>
+        <figure><video controls playsinline muted preload="none" poster="assets/real-v2/bowl.png" src="assets/real-v2/bowl.mp4" aria-label="Real-robot brush and bowl manipulation"></video><figcaption><span class="real-badge">Real robot</span><h3>Brushing a bowl</h3><p>Tool–container interaction transferred from a public egocentric demonstration.</p></figcaption></figure>
+        <figure><video controls playsinline muted preload="none" poster="assets/real-v2/paddle.png" src="assets/real-v2/paddle.mp4" aria-label="Real-robot table-tennis serve"></video><figcaption><span class="real-badge">Real robot</span><h3>Serving a table-tennis ball</h3><p>A table-tennis serve transferred to the dual-arm robot.</p></figcaption></figure>
+        <figure><video controls playsinline muted preload="none" poster="assets/real-v2/flowers.png" src="assets/real-v2/flowers.mp4" aria-label="Real-robot flower spraying"></video><figcaption><span class="real-badge">Real robot</span><h3>Spraying flowers</h3><p>A spray-bottle interaction with the flower vase held by the other hand.</p></figcaption></figure>
+        <figure><video controls playsinline muted preload="none" poster="assets/real-v2/glue.png" src="assets/real-v2/glue.mp4" aria-label="Real-robot glue-gun and box manipulation"></video><figcaption><span class="real-badge">Real robot</span><h3>Gluing a box</h3><p>Transferred glue-gun motion alongside a held box.</p></figcaption></figure>
+      </div>
+      <p class="source-note">Videos show the recorded replay segments. Simulation arm visualizations and physical hardware recordings are presented separately.</p>
+    </section>
+    <section class="closing wrap"><div><p class="eyebrow">EgoMatrix</p><h2>Turning everyday demonstrations<br>into paired robot data.</h2></div><a class="button secondary" href="#demos">Back to demonstrations <span aria-hidden="true">↑</span></a></section>
+  </main>
+  <footer class="wrap"><span>EgoMatrix</span><span>From human videos to robot demonstrations</span></footer>
+</body>
+</html>
