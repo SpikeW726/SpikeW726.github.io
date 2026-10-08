@@ -11,11 +11,12 @@ The Code button will be added when the public source-code release is ready.
 ## Authors
 
 Ziheng Wang (1), Yanming Shao (2), Ting Mao (3), Kaihan Chen (3),
-Yiqun Wang (2), Xuanye Wu (2), and Yao Mu (1, 2; corresponding author).
+Yiqun Wang (4), Xuanye Wu (4), and Yao Mu (1, 4; corresponding author).
 
 1. Shanghai Jiao Tong University
-2. Shanghai Artificial Intelligence Laboratory
+2. The University of Hong Kong
 3. Zhejiang University
+4. Shanghai AI Laboratory
 
 ## Contents
 
