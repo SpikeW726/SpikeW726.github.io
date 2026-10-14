@@ -21,9 +21,9 @@ GitHub Pages 从 `master` 分支的根目录发布，个人主页地址为 https
 
 更换个人照片时替换 `assets/portrait.jpg` 即可。`.portrait` 控制竖向画幅，`.portrait img` 的 `object-position`、`transform` 和 `transform-origin` 控制取景位置与缩放。News 圆点在悬停或键盘聚焦链接时有过渡效果，并遵循系统的减少动态效果设置。
 
-两篇工作统一标为 Preprint。EgoMatrix 的预印本月份由本人确认为 2026.09，arXiv 链接待补；M2Bench 首次 arXiv 上传时间为 2026.05。国奖（2024.12）、莙政（2026.06）月份来自《个人简历（大三下版）》。省级及以上奖项来自个人信息采集表。年级、预计毕业时间和四段经历日期以本人最新确认为准。
+两篇工作统一标为 Preprint。[EgoMatrix 的 arXiv 预印本](https://arxiv.org/abs/2610.18822)首次提交于 2026.10.13，News 已按正式发布日期更新为 2026.10；M2Bench 首次 arXiv 上传时间为 2026.05。国奖（2024.12）、莙政（2026.06）月份来自《个人简历（大三下版）》。省级及以上奖项来自个人信息采集表。年级、预计毕业时间和四段经历日期以本人最新确认为准。
 
-EgoMatrix 的所有主页链接均指向 `https://spikew726.github.io/EgoMatrix/`。即使用 VS Code Go Live，也会进入线上项目页；其余本地资产仍使用相对路径。
+EgoMatrix 的 Project Page 按钮、标题与配图链接指向 `https://spikew726.github.io/EgoMatrix/`，arXiv 按钮与 News 链接指向 `https://arxiv.org/abs/2610.18822`。即使用 VS Code Go Live，也会进入相应线上页面；本地资产仍使用相对路径。
 
 ## 图片来源
 
