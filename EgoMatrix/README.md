@@ -5,7 +5,7 @@ with a static web server. No build step or runtime dependencies are required.
 
 Project page (after publishing): https://spikew726.github.io/EgoMatrix/
 
-Paper and arXiv buttons will be added once the preprint is available.
+The arXiv button links to the preprint abstract: https://arxiv.org/abs/2610.18822 .
 The Code button will be added when the public source-code release is ready.
 
 ## Authors
