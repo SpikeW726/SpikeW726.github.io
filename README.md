@@ -21,7 +21,11 @@ GitHub Pages 从 `master` 分支的根目录发布，个人主页地址为 https
 - `assets/logos/`：SJTU 校徽与 IWIN-FINS 官网标识。ScaleLab 官网未提供独立图片标识，暂用 SJTU 校徽。
 - `assets/fonts/`：本地字体及其许可证。
 
-个人照片按 `index.html` 中 `.portrait` 内的图片顺序循环浏览，初始显示 `assets/portrait.jpg`。点击或轻触照片显示下一张；键盘左右方向键可前后切换，页码显示在照片右下角。不自动播放，禁用 JavaScript 时仍显示第一张照片。`.portrait` 控制竖向画幅，各图片的 `--position` 和 `--zoom` 控制取景位置与缩放。News 圆点在悬停或键盘聚焦链接时有过渡效果，并遵循系统的减少动态效果设置。
+个人照片按 `index.html` 中 `.portrait` 内的图片顺序循环浏览，初始显示 `assets/portrait.jpg`。参考 [Qianxu Wang 主页](https://qianxu.wang/) 的叠放照片交互：点击或轻触时，最上方的照片滑开，下一张移到前面；键盘左右方向键可前后切换，底部圆点标记当前照片。不自动播放，禁用 JavaScript 时仍显示第一张照片；遵循系统的减少动态效果设置。`.portrait` 控制竖向画幅，各图片的 `--position` 和 `--zoom` 控制取景位置与缩放。News 圆点在悬停或键盘聚焦链接时有过渡效果。
+
+更新 CSS 或照片脚本时，同时更新 `index.html` 中相应资源链接的 `?v=` 版本号，避免访问者缓存的旧样式与新 HTML 混用。
+
+照片交互回归检查：安装 Node 22+ 和 Chrome 后运行 `node tests/portrait.test.cjs`，会在浏览器中验证旧缓存更新、鼠标/键盘/触控、手机布局和减少动态效果。追加 `https://spikew726.github.io/` 可检查线上版本；非默认 Chrome 路径可通过 `CHROME_PATH` 指定。
 
 两篇工作统一标为 Preprint。[EgoMatrix 的 arXiv 预印本](https://arxiv.org/abs/2610.18822)首次提交于 2026.10.13，News 已按正式发布日期更新为 2026.10；M2Bench 首次 arXiv 上传时间为 2026.05。国奖（2024.12）、莙政（2026.06）月份来自《个人简历（大三下版）》。省级及以上奖项来自个人信息采集表。年级、预计毕业时间和四段经历日期以本人最新确认为准。
 
