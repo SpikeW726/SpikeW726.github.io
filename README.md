@@ -1,6 +1,6 @@
 # Ziheng Wang · Personal homepage
 
-英文个人学术主页，依据个人 CV、个人信息采集表及本人确认的信息整理。保留 [Yuke Zhao 主页](https://hzeroyuke.github.io/index.html) 启发的字体与配色，融合 [Zhenyu Wei 主页](https://zhenyuwei2003.github.io/) 的紧凑研究条目、章节编号和带标识的经历排版。纯 HTML/CSS，无构建步骤和 JavaScript 依赖。
+英文个人学术主页，依据个人 CV、个人信息采集表及本人确认的信息整理。保留 [Yuke Zhao 主页](https://hzeroyuke.github.io/index.html) 启发的字体与配色，融合 [Zhenyu Wei 主页](https://zhenyuwei2003.github.io/) 的紧凑研究条目、章节编号和带标识的经历排版。静态 HTML/CSS 与原生 JavaScript，无构建步骤或第三方运行依赖。
 
 ## 本地预览
 
@@ -12,14 +12,16 @@ GitHub Pages 从 `master` 分支的根目录发布，个人主页地址为 https
 
 - `index.html`：简介、新闻、研究、开源项目、奖项、教育及实验室经历与联系方式。
 - `style.css`：桌面双栏与手机单栏布局、颜色、字体。
+- `portrait.js`：个人照片点击循环切换，支持 Enter、空格和左右方向键。
 - `assets/Ziheng_Wang_CV.pdf`：可下载的 CV；更新时替换此文件即可。
 - `assets/portrait.jpg`：个人照片原图，通过 CSS 以竖向圆角矩形取景，图片文件未裁剪。
+- `assets/homepage2.jpg` 至 `assets/homepage4.jpg`：新增的三张个人照片，保留原文件。
 - EgoMatrix 配图直接引用 `EgoMatrix/assets/images/teaser.png` 原图。
 - `assets/images/`：M2Bench 架构图与 FinsROV 平台原图。
 - `assets/logos/`：SJTU 校徽与 IWIN-FINS 官网标识。ScaleLab 官网未提供独立图片标识，暂用 SJTU 校徽。
 - `assets/fonts/`：本地字体及其许可证。
 
-更换个人照片时替换 `assets/portrait.jpg` 即可。`.portrait` 控制竖向画幅，`.portrait img` 的 `object-position`、`transform` 和 `transform-origin` 控制取景位置与缩放。News 圆点在悬停或键盘聚焦链接时有过渡效果，并遵循系统的减少动态效果设置。
+个人照片按 `index.html` 中 `.portrait` 内的图片顺序循环浏览，初始显示 `assets/portrait.jpg`。点击或轻触照片显示下一张；键盘左右方向键可前后切换，页码显示在照片右下角。不自动播放，禁用 JavaScript 时仍显示第一张照片。`.portrait` 控制竖向画幅，各图片的 `--position` 和 `--zoom` 控制取景位置与缩放。News 圆点在悬停或键盘聚焦链接时有过渡效果，并遵循系统的减少动态效果设置。
 
 两篇工作统一标为 Preprint。[EgoMatrix 的 arXiv 预印本](https://arxiv.org/abs/2610.18822)首次提交于 2026.10.13，News 已按正式发布日期更新为 2026.10；M2Bench 首次 arXiv 上传时间为 2026.05。国奖（2024.12）、莙政（2026.06）月份来自《个人简历（大三下版）》。省级及以上奖项来自个人信息采集表。年级、预计毕业时间和四段经历日期以本人最新确认为准。
 

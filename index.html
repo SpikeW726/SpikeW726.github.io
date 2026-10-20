@@ -12,6 +12,7 @@
   <title>Ziheng Wang | 王梓恒</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="portrait.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,7 +29,13 @@
 
   <div class="layout">
     <aside class="profile" aria-label="About Ziheng Wang">
-      <div class="portrait"><img src="assets/portrait.jpg" alt="Ziheng Wang by a river in Inner Mongolia" fetchpriority="high"></div>
+      <button class="portrait" type="button" disabled aria-label="Browse personal photos" title="Click for the next photo, or use the left and right arrow keys">
+        <img src="assets/portrait.jpg" alt="Ziheng Wang by a river in Inner Mongolia" fetchpriority="high" style="--position: 43% center; --zoom: 1.2">
+        <img src="assets/homepage2.jpg" alt="Ziheng Wang in front of the Shanghai skyline at night" fetchpriority="low" style="--position: 25% center" hidden>
+        <img src="assets/homepage3.jpg" alt="Ziheng Wang giving a presentation" fetchpriority="low" style="--position: 40% center" hidden>
+        <img src="assets/homepage4.jpg" alt="Ziheng Wang smiling and making a peace sign" fetchpriority="low" hidden>
+        <span class="portrait-caption" aria-hidden="true"><span>Next photo</span><span data-photo-count>1 / 4</span></span>
+      </button>
       <h1>Ziheng Wang <span class="chinese-name" lang="zh-CN">王梓恒</span></h1>
       <p class="affiliation">Junior · Automation<br>Shanghai Jiao Tong University</p>
       <p class="location">Shanghai, China</p>
